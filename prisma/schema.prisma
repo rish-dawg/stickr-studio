@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  name      String
+  size      String   // e.g. "2x2", "3x3", "4x6", "custom"
+  shape     String   // e.g. "circle", "square", "rectangle", "die-cut", "oval", "custom"
+  type      String   // e.g. "vinyl", "paper", "holographic", "clear", "matte", "glossy"
+  quantity  Int      @default(100)
+  cost      Float    // base cost per unit
+  minOrder  Int      @default(25)
+  image     String?  // optional image URL
+  featured  Boolean  @default(false)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
