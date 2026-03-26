@@ -1,6 +1,17 @@
 "use client";
 
+import { useCallback } from "react";
+
 export default function Hero() {
+  const handleStickerClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    el.classList.remove("sticker-clicked");
+    // Force reflow to restart animation
+    void el.offsetWidth;
+    el.classList.add("sticker-clicked");
+    el.addEventListener("animationend", () => el.classList.remove("sticker-clicked"), { once: true });
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-violet-50">
       {/* Background decorations */}
@@ -17,22 +28,22 @@ export default function Hero() {
       </div>
 
       {/* Floating sticker shapes — hidden on mobile/tablet to avoid overlap */}
-      <div className="absolute top-24 left-[8%] animate-float opacity-80 hidden xl:block">
+      <div className="absolute top-24 left-[8%] animate-float opacity-80 hidden xl:block cursor-pointer" onClick={handleStickerClick}>
         <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-xl shadow-orange-300/40 flex items-center justify-center text-3xl rotate-12">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r="0.5" fill="white"/><circle cx="17.5" cy="10.5" r="0.5" fill="white"/><circle cx="8.5" cy="7.5" r="0.5" fill="white"/><circle cx="6.5" cy="12.5" r="0.5" fill="white"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2Z"/></svg>
         </div>
       </div>
-      <div className="absolute top-40 right-[10%] animate-float-delayed opacity-80 hidden xl:block">
+      <div className="absolute top-40 right-[10%] animate-float-delayed opacity-80 hidden xl:block cursor-pointer" onClick={handleStickerClick}>
         <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 shadow-xl shadow-blue-300/40 flex items-center justify-center text-2xl -rotate-12">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
       </div>
-      <div className="absolute bottom-32 left-[15%] animate-float-delayed opacity-70 hidden xl:block">
+      <div className="absolute bottom-32 left-[15%] animate-float-delayed opacity-70 hidden xl:block cursor-pointer" onClick={handleStickerClick}>
         <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-400 to-purple-500 shadow-xl shadow-violet-300/40 flex items-center justify-center text-2xl rotate-6">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
       </div>
-      <div className="absolute bottom-48 right-[15%] animate-float opacity-70 hidden xl:block">
+      <div className="absolute bottom-48 right-[15%] animate-float opacity-70 hidden xl:block cursor-pointer" onClick={handleStickerClick}>
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-500 shadow-xl shadow-emerald-300/40 flex items-center justify-center text-2xl -rotate-6">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z"/></svg>
         </div>
