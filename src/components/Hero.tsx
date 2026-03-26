@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-28 sm:pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100/80 backdrop-blur-sm border border-purple-200/50 text-purple-700 text-sm font-medium mb-8">
@@ -59,6 +59,36 @@ export default function Hero() {
               Premium custom stickers for your brand, art, or anything you dream up.
               Die-cut, vinyl, holographic &mdash; weatherproof and vibrant.
             </p>
+
+            {/* Sticker showcase - shown here on mobile only, between text and buttons */}
+            <div className="block lg:hidden mt-8">
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 mx-auto">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-600 via-purple-500 to-indigo-500 shadow-2xl shadow-purple-500/40 overflow-hidden animate-float">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white">
+                    <div className="relative w-32 h-32 sm:w-40 sm:h-40 mb-3 flex items-center justify-center">
+                      <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-inner">
+                        <div className="text-center">
+                          <div className="text-5xl sm:text-6xl leading-none" style={{ textShadow: "0 4px 12px rgba(0,0,0,0.15)" }}>🍌</div>
+                          <div className="mt-1 text-xs font-bold opacity-70 tracking-wider">COOL BANANA</div>
+                        </div>
+                      </div>
+                      <div className="absolute -inset-1 rounded-2xl border-2 border-white/30 pointer-events-none" />
+                    </div>
+                    <div className="text-base sm:text-lg font-black tracking-tight">YOUR DESIGN HERE</div>
+                    <div className="text-xs opacity-70 mt-1">Premium vinyl sticker</div>
+                    <div className="mt-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-xs font-semibold">
+                      Die-Cut &bull; Waterproof
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -top-2 -right-2 w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-orange-300/40 flex items-center justify-center animate-float-delayed rotate-12">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div className="absolute -bottom-2 -left-2 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 shadow-lg shadow-blue-300/40 flex items-center justify-center animate-float -rotate-12">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+                </div>
+              </div>
+            </div>
 
             {/* CTA Buttons */}
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
@@ -93,8 +123,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right - Sticker showcase with real photo */}
-          <div className="relative flex items-center justify-center">
+          {/* Right - Sticker showcase (desktop only, mobile version is inline above) */}
+          <div className="relative hidden lg:flex items-center justify-center">
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               {/* Main sticker card */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-600 via-purple-500 to-indigo-500 shadow-2xl shadow-purple-500/40 overflow-hidden animate-float">
